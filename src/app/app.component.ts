@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'myDemo';
+  r = 0.22;
+  myDate = new Date();
 }
