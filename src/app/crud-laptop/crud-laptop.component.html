@@ -1,0 +1,50 @@
+<div class="container bg-dark rounded">
+    <div class="container mx-5 py-4">
+      <form class="me-5">
+        <div class="form-group">
+          <label for="inputName " class="text-light">Model</label>
+          <input [(ngModel)]="laptopFormat.Model" name="inputName" type="text" class="form-control"
+            style="color: skyblue" id="inputName" aria-describedby="emailHelp" placeholder="Enter Name" />
+        </div>
+        <div class="form-group">
+          <label for="inputExp" class="text-light">Experience</label>
+          <input [(ngModel)]="laptopFormat.Price" name="inputExp" type="number" class="form-control "
+            style="color: skyblue" id="inputExp" aria-describedby="emailHelp" placeholder="Enter Exp" />
+        </div>
+        <div class="form-group">
+          <label for="inputImg" class="text-light">Image</label>
+          <input [(ngModel)]="laptopFormat.Img" name="inputImg" type="text" class="form-control" style="color: skyblue"
+            id="inputImg" aria-describedby="emailHelp" placeholder="Enter Img" />
+        </div>
+      </form>
+      <button *ngIf="editIndex == -1" (click)="addFaculty()" class="btn btn-primary px-5">
+        Add
+      </button>
+      <button *ngIf="editIndex > -1" (click)="editFaculty()" class="btn btn-primary px-5">
+        Save Edit
+      </button>
+    </div>
+  
+    <div class="row ps-5 my-2">
+      <div class="card  ms-5 my-3 rounded px-0 shadow" *ngFor="let laptop of laptopData; let i = index"
+        style="width: 18rem"> 
+        <img class="card-img-top rounded" [src]="laptop.Img" alt="Not Available" />
+        <div class="card-body">
+          <h5 class="card-title">{{ laptop.Model }}</h5>
+          <p>Price: {{ laptop.Price | currency}}</p>
+          <div class="row px-5">
+            <div class="col-6">
+              <button (click)="editItem(i)" class="btn btn-warning px-3">
+                Edit
+              </button>
+            </div>
+            <div class="col-6">
+              <button (click)="laptopData.splice(i, 1)" class="btn btn-danger">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

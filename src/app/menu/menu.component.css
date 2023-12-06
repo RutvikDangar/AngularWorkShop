@@ -1,0 +1,12 @@
+a{
+    text-decoration: underline;
+    font-weight: 700;
+    color: skyblue;
+    font-size: 1.5rem;
+}
+
+.position{ 
+    z-index: 1222;
+    position:sticky;
+    top: 1vh;
+}

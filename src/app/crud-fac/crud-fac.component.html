@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="text-center">
+    <h1>Faculty</h1>
+  </div>
+
+  <div class="container mx-5">
+    <form class="me-5">
+      <div class="form-group">
+        <label for="inputName">Name</label>
+        <input [(ngModel)]="tempFac.Name" name="inputName" type="text" class="form-control bg-dark"
+          style="color: skyblue" id="inputName" aria-describedby="emailHelp" placeholder="Enter Name" />
+      </div>
+      <div class="form-group">
+        <label for="inputExp">Experience</label>
+        <input [(ngModel)]="tempFac.Exp" name="inputExp" type="number" class="form-control bg-dark"
+          style="color: skyblue" id="inputExp" aria-describedby="emailHelp" placeholder="Enter Exp" />
+      </div>
+      <div class="form-group">
+        <label for="inputImg">Image</label>
+        <input [(ngModel)]="tempFac.Img" name="inputImg" type="text" class="form-control bg-dark" style="color: skyblue"
+          id="inputImg" aria-describedby="emailHelp" placeholder="Enter Img" />
+      </div>
+    </form>
+    <button *ngIf="editIndex == -1" (click)="addFaculty()" class="btn btn-primary px-5">
+      Add
+    </button>
+    <button *ngIf="editIndex > -1" (click)="editFaculty()" class="btn btn-primary px-5">
+      Save Edit
+    </button>
+  </div>
+
+  <div class="row ps-5 my-2">
+    <div class="card bg-dark text-light col-4 ms-5 my-1 rounded px-0 shadow" *ngFor="let fac of facData; let i = index"
+      style="width: 18rem">
+      <img class="card-img-top rounded" [src]="fac.Img" alt="Not Available" />
+      <div class="card-body">
+        <h5 class="card-title">{{ fac.Name }}</h5>
+        <p>Experience: {{ fac.Exp }}+ Years</p>
+        <div class="row px-5">
+          <div class="col-6">
+            <button (click)="editItem(i)" class="btn btn-warning px-3">
+              Edit
+            </button>
+          </div>
+          <div class="col-6">
+            <button (click)="facData.splice(i, 1)" class="btn btn-danger">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

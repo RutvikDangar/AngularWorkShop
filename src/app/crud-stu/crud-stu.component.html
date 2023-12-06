@@ -1,0 +1,28 @@
+<table>
+    <tr>
+        <td><label>Name</label></td>
+        <td><input type="text" [(ngModel)]="inputName"></td>
+    </tr>
+
+    <tr>
+        <td><label>Roll No</label></td>
+        <td><input type="text" [(ngModel)]="inputRollNo"></td>
+    </tr>
+    <tr>
+        <input *ngIf="!editFlag" type="button" (click)="addToData(inputName,inputRollNo)" value="Add Data">
+        <input *ngIf="editFlag" type="button" (click)="editData(inputName,inputRollNo)" value="Save Edits">
+    </tr>
+</table>
+
+
+
+<br>
+
+<table>
+    <tr *ngFor="let s of data">
+        <td>{{s.Name}}</td>
+        <td>{{s.RollNo}}</td>
+        <td><input type="button" (click)="editItem(data.indexOf(s))" value="Edit"></td>
+        <td><input type="button" (click)="data.splice(data.indexOf(s),1)" value="Delete"></td>
+    </tr>
+</table>
